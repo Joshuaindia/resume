@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Joshua — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#06b6d4; --glass: rgba(255,255,255,0.04);
+      --radius:14px; --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#e6eef6;background:linear-gradient(180deg,#071026 0%,var(--bg) 100%);}
+    .wrap{max-width:var(--maxw);margin:40px auto;padding:28px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 8px 30px rgba(2,6,23,0.6);}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;gap:16px;align-items:center}
+    .avatar{width:84px;height:84px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#042029}
+    h1{margin:0;font-size:24px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:28px;margin-top:28px}
+
+    /* left column */
+    .card{background:var(--card);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .about p{color:var(--muted);line-height:1.5}
+
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:var(--glass);padding:8px 10px;border-radius:10px;font-size:13px;color:var(--muted)}
+
+    .timeline{list-style:none;padding:0;margin:0}
+    .timeline li{padding:12px 0;border-top:1px dashed rgba(255,255,255,0.03)}
+    .timeline li:first-child{border-top:0}
+    .muted{color:var(--muted);font-size:13px}
+
+    /* right column */
+    .contact-block{display:flex;flex-direction:column;gap:10px}
+    .contact-row{display:flex;align-items:center;gap:10px}
+    .contact-row strong{min-width:70px}
+
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .project{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px}
+    .project h4{margin:0 0 6px}
+    .cta{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#042029;font-weight:700;text-decoration:none}
+
+    footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* responsive */
+    @media (max-width:980px){.grid{grid-template-columns:1fr}.avatar{width:68px;height:68px}.wrap{margin:18px;padding:18px}}
+    @media (max-width:480px){.projects{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main">
+    <header>
+      <div class="brand">
+        <div class="avatar">J</div>
+        <div>
+          <h1>Joshua</h1>
+          <p class="lead">Computer Science Engineer • Full‑stack developer (Python/Django) • AIML enthusiast</p>
+        </div>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="grid">
+      <!-- left column -->
+      <div>
+        <section id="about" class="card about">
+          <div class="section-title"><h3>About</h3><span class="muted">Kalaburagi, India</span></div>
+          <p>
+            I am a Computer Science Engineer with strong communication skills and a passion for solving real-world application problems. I consistently performed well in academics and actively participated in competitions and internships to build practical skills.
+          </p>
+          <div style="margin-top:14px">
+            <h4>Skills</h4>
+            <div class="skills" style="margin-top:8px">
+              <span class="chip">Python</span>
+              <span class="chip">Django</span>
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">AIML (basic)</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="experience" class="card" style="margin-top:18px">
+          <div class="section-title"><h3>Experience & Internships</h3><span class="muted">Practical training</span></div>
+          <ul class="timeline">
+            <li>
+              <strong>Technosoft Corporation</strong>
+              <div class="muted">Intern — Python with Django</div>
+            </li>
+            <li>
+              <strong>Eduwize Empowering Solution</strong>
+              <div class="muted">Intern — Web Development</div>
+            </li>
+            <li>
+              <strong>IBM Corporation</strong>
+              <div class="muted">Intern — AIML</div>
+            </li>
+            <li>
+              <strong>Rooman Technologies Pvt Ltd</strong>
+              <div class="muted">Intern — Python</div>
+            </li>
+            <li>
+              <strong>Wadwani</strong>
+              <div class="muted">Intern — English</div>
+            </li>
+          </ul>
+        </section>
+
+        <section id="education" class="card" style="margin-top:18px">
+          <div class="section-title"><h3>Education</h3><span class="muted">Academic record</span></div>
+          <ul class="timeline">
+            <li>
+              <strong>Government Engineering College, Raichur</strong>
+              <div class="muted">B.Tech — Computer Science & Engineering • 7.2 CGPA • 2025</div>
+            </li>
+            <li>
+              <strong>St. Xavier PU College, Kalaburagi</strong>
+              <div class="muted">PUC • 95.5% • 2021</div>
+            </li>
+            <li>
+              <strong>St Mary School Kootnoor (D), Kalaburagi</strong>
+              <div class="muted">SSLC • 92.5% • 2019</div>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- right column -->
+      <aside>
+        <div class="card contact-block" id="contact">
+          <div class="section-title"><h3>Contact</h3><a class="muted" href="#">Get in touch</a></div>
+          <div class="contact-row"><strong>Phone</strong><span class="muted">7975733928</span></div>
+          <div class="contact-row"><strong>Email</strong><span class="muted">imjoshua49@gmail.com</span></div>
+          <div class="contact-row"><strong>Location</strong><span class="muted">Kalaburagi, India</span></div>
+
+          <div style="margin-top:12px">
+            <a class="cta" href="mailto:imjoshua49@gmail.com">Email me</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <div class="section-title"><h3>Projects</h3><span class="muted">Selected work</span></div>
+          <div class="projects">
+            <div class="project">
+              <h4>Portfolio Website</h4>
+              <div class="muted">Single‑page responsive portfolio built with HTML & CSS.</div>
+            </div>
+            <div class="project">
+              <h4>Django Form App</h4>
+              <div class="muted">Common form for course enrollment (server-side with Django).</div>
+            </div>
+            <div class="project">
+              <h4>Machine Learning</h4>
+              <div class="muted">Small AIML projects completed during IBM internship.</div>
+            </div>
+            <div class="project">
+              <h4>Web CRUD App</h4>
+              <div class="muted">Full‑stack app using Django and MySQL.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <div class="section-title"><h3>Languages</h3><span class="muted">Fluent</span></div>
+          <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px">
+            <span class="chip">Kannada</span>
+            <span class="chip">English</span>
+            <span class="chip">Hindi</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      Built with ❤️ • Available on request — resume and project links.
+    </footer>
+  </div>
+</body>
+</html>
