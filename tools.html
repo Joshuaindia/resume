@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Useful Tools Collection</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: radial-gradient(circle at top, #1e1e2f, #0d0d16);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 1.6em;
+      letter-spacing: 1px;
+      margin: 0;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      gap: 12px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 0.9em;
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(6px);
+    }
+
+    nav a:hover {
+      background: linear-gradient(90deg, #2575fc, #6a11cb);
+      box-shadow: 0 0 10px #6a11cb;
+      transform: translateY(-2px);
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      width: 90%;
+      max-width: 1200px;
+      margin: 50px auto;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      backdrop-filter: blur(6px);
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(#6a11cb, #2575fc, #6a11cb);
+      transform: rotate(0deg);
+      transition: transform 1s linear;
+      z-index: 0;
+      opacity: 0.2;
+    }
+
+    .card:hover::before {
+      transform: rotate(180deg);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px rgba(98, 188, 255, 0.5);
+    }
+
+    .card h3 {
+      position: relative;
+      z-index: 1;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      color: #8ecbff;
+    }
+
+    .card p {
+      position: relative;
+      z-index: 1;
+      font-size: 0.95em;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    .card a {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #2575fc, #6a11cb);
+      color: #fff;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: 600;
+    }
+
+    .card a:hover {
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      box-shadow: 0 0 10px #6a11cb;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #999;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌐 Useful Tools</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Login</a>
+      <a href="#">Logout</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h3>Online PDF Editor</h3>
+      <p>Edit, merge, split, or compress PDFs online — all in your browser without signup.</p>
+      <a href="https://www.sejda.com/pdf-editor?utm_source=chatgpt.com" target="_blank">Visit</a>
+    </div>
+
+    <div class="card">
+      <h3>Type = Game</h3>
+      <p>A typing game where you destroy enemy ships by typing words quickly. Boost your speed & reflexes!</p>
+      <a href="https://zty.pe/" target="_blank">Play</a>
+    </div>
+
+    <div class="card">
+      <h3>Crazy Mind Games</h3>
+      <p>Play hundreds of free online brain and logic games to sharpen your mind.</p>
+      <a href="https://poki.com/en/intelligence" target="_blank">Explore</a>
+    </div>
+
+    <div class="card">
+      <h3>Mind Games</h3>
+      <p>Challenge your brain with fun puzzles and strategy-based mini-games online.</p>
+      <a href="https://www.crazygames.com/t/brain" target="_blank">Try Now</a>
+    </div>
+
+    <div class="card">
+      <h3>download paid games[free]</h3>
+      <p>Find and download PC, PS, and Xbox games safely from a curated torrent platform.</p>
+      <a href="https://www.gamestorrents.app/" target="_blank">Open</a>
+    </div>
+
+    <div class="card">
+      <h3>Explore Solar System</h3>
+      <p>Explore the universe in 3D with this mesmerizing Chrome experiment of stars and galaxies.</p>
+      <a href="https://stars.chromeexperiments.com/" target="_blank">Launch</a>
+    </div>
+
+    <div class="card">
+      <h3>Watch Movies</h3>
+      <p>Watch movies and TV shows online for free with a clean interface and smooth streaming.</p>
+      <a href="https://ww1.goojara.to/" target="_blank">Watch</a>
+    </div>
+
+    <div class="card">
+      <h3>[AI tool] Take notes,summary from google meet,zoom etc</h3>
+      <p>Record and transcribe Google Meet & Zoom calls automatically. Perfect for productivity and teams.</p>
+      <a href="https://tldv.io/" target="_blank">Use</a>
+    </div>
+
+    <div class="card">
+      <h3>Create your own emoji</h3>
+      <p>Combine emojis to create new ones! A fun and creative emoji mashup generator.</p>
+      <a href="https://emoji.supply/kitchen/" target="_blank">Mix Emojis</a>
+    </div>
+
+    <div class="card">
+      <h3>Transfer large file or folder</h3>
+      <p>Send large files up to 2GB instantly without signup — simple and fast file sharing.</p>
+      <a href="https://wetransfer.com/" target="_blank">Send Files</a>
+    </div>
+
+    <div class="card">
+      <h3>All in One TOOLs[pdf editor, pdf converter etc]</h3>
+      <p>All-in-one online toolbox for PDFs, videos, AI tools, and file converters — totally free!</p>
+      <a href="https://tinywow.com/" target="_blank">Use Tool</a>
+    </div>
+  </div>
+
+  <footer>
+    Made with ❤️ by Joshua | Stay productive and have fun online!
+  </footer>
+
+</body>
+</html>
