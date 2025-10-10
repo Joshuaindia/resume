@@ -1,192 +1,264 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joshua — Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#06b6d4; --glass: rgba(255,255,255,0.04);
-      --radius:14px; --maxw:1100px;
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent: #06b6d4;
+      --glass: rgba(255, 255, 255, 0.04);
+      --radius: 14px;
+      --maxw: 900px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#e6eef6;background:linear-gradient(180deg,#071026 0%,var(--bg) 100%);}
-    .wrap{max-width:var(--maxw);margin:40px auto;padding:28px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 8px 30px rgba(2,6,23,0.6);}
 
-    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;gap:16px;align-items:center}
-    .avatar{width:84px;height:84px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#042029}
-    h1{margin:0;font-size:24px}
-    p.lead{margin:6px 0 0;color:var(--muted)}
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(180deg, #071026 0%, var(--bg) 100%);
+      color: #e6eef6;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
 
-    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
-    .grid{display:grid;grid-template-columns:1fr 340px;gap:28px;margin-top:28px}
+    .wrap {
+      width: 100%;
+      max-width: var(--maxw);
+      padding: 28px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+    }
 
-    /* left column */
-    .card{background:var(--card);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-    .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-    .about p{color:var(--muted);line-height:1.5}
+    /* ---------- HEADER ---------- */
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--accent), #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 36px;
+      color: #042029;
+      margin: 0 auto 14px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+    p.lead {
+      color: var(--muted);
+      font-size: 15px;
+    }
 
-    .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .chip{background:var(--glass);padding:8px 10px;border-radius:10px;font-size:13px;color:var(--muted)}
+    /* ---------- GLOW BUTTON ---------- */
+    .btn-glow {
+      margin: 8px;
+      padding: 12px 28px;
+      border: none;
+      outline: none;
+      color: #fff;
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 10px;
+      font-weight: 700;
+      background: #111;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
 
-    .timeline{list-style:none;padding:0;margin:0}
-    .timeline li{padding:12px 0;border-top:1px dashed rgba(255,255,255,0.03)}
-    .timeline li:first-child{border-top:0}
-    .muted{color:var(--muted);font-size:13px}
+    .btn-glow::after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #222;
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+    }
 
-    /* right column */
-    .contact-block{display:flex;flex-direction:column;gap:10px}
-    .contact-row{display:flex;align-items:center;gap:10px}
-    .contact-row strong{min-width:70px}
+    .btn-glow::before {
+      content: "";
+      background: linear-gradient(
+        45deg,
+        #FF0000, #FF7300, #FFFB00, #48FF00,
+        #00FFD5, #002BFF, #FF00C8, #FF0000
+      );
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background-size: 600%;
+      z-index: -1;
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      filter: blur(8px);
+      animation: glowing 20s linear infinite;
+      border-radius: 10px;
+      opacity: 1; /* always visible */
+    }
 
-    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    .project{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px}
-    .project h4{margin:0 0 6px}
-    .cta{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#042029;font-weight:700;text-decoration:none}
+    @keyframes glowing {
+      0% { background-position: 0 0; }
+      50% { background-position: 400% 0; }
+      100% { background-position: 0 0; }
+    }
 
-    footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
+    .btn-glow:active:after { background: transparent; }
+    .btn-glow:active { color: #000; font-weight: bold; }
 
-    /* responsive */
-    @media (max-width:980px){.grid{grid-template-columns:1fr}.avatar{width:68px;height:68px}.wrap{margin:18px;padding:18px}}
-    @media (max-width:480px){.projects{grid-template-columns:1fr}}
+    /* ---------- NAVIGATION ---------- */
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      margin-bottom: 26px;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .section-title {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+    .muted { color: var(--muted); }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      background: var(--glass);
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    ul.timeline {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .timeline li {
+      padding: 10px 0;
+      border-top: 1px dashed rgba(255,255,255,0.05);
+    }
+    .timeline li:first-child { border-top: none; }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 20px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 600px) {
+      .btn-glow {
+        margin: 6px 4px;
+        padding: 10px 22px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <div class="wrap" role="main">
+  <div class="wrap">
     <header>
-      <div class="brand">
-        <div class="avatar">J</div>
-        <div>
-          <h1>Joshua</h1>
-          <p class="lead">Computer Science Engineer • Full‑stack developer (Python/Django) • AIML enthusiast</p>
-        </div>
-      </div>
-      <nav aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+      <h1>This is under development</h1>
+      <br>
+      <div class="avatar">J</div>
+      <h2>Joshua</h2>
+      <p class="lead">Computer Science Engineer • Full-stack developer (Python/Django) • AIML enthusiast</p>
+
+      <!-- 🔹 Glowing Navigation Buttons -->
+      <nav>
+        <a href="#about" class="btn-glow">About</a>
+        <a href="#experience" class="btn-glow">Experience</a>
+        <a href="#projects" class="btn-glow">Projects</a>
+        <a href="#contact" class="btn-glow">Contact</a>
       </nav>
     </header>
 
-    <div class="grid">
-      <!-- left column -->
-      <div>
-        <section id="about" class="card about">
-          <div class="section-title"><h3>About</h3><span class="muted">Kalaburagi, India</span></div>
-          <p>
-            I am a Computer Science Engineer with strong communication skills and a passion for solving real-world application problems. I consistently performed well in academics and actively participated in competitions and internships to build practical skills.
-          </p>
-          <div style="margin-top:14px">
-            <h4>Skills</h4>
-            <div class="skills" style="margin-top:8px">
-              <span class="chip">Python</span>
-              <span class="chip">Django</span>
-              <span class="chip">HTML</span>
-              <span class="chip">CSS</span>
-              <span class="chip">JavaScript</span>
-              <span class="chip">MySQL</span>
-              <span class="chip">AIML (basic)</span>
-            </div>
-          </div>
-        </section>
-
-        <section id="experience" class="card" style="margin-top:18px">
-          <div class="section-title"><h3>Experience & Internships</h3><span class="muted">Practical training</span></div>
-          <ul class="timeline">
-            <li>
-              <strong>Technosoft Corporation</strong>
-              <div class="muted">Intern — Python with Django</div>
-            </li>
-            <li>
-              <strong>Eduwize Empowering Solution</strong>
-              <div class="muted">Intern — Web Development</div>
-            </li>
-            <li>
-              <strong>IBM Corporation</strong>
-              <div class="muted">Intern — AIML</div>
-            </li>
-            <li>
-              <strong>Rooman Technologies Pvt Ltd</strong>
-              <div class="muted">Intern — Python</div>
-            </li>
-            <li>
-              <strong>Wadwani</strong>
-              <div class="muted">Intern — English</div>
-            </li>
-          </ul>
-        </section>
-
-        <section id="education" class="card" style="margin-top:18px">
-          <div class="section-title"><h3>Education</h3><span class="muted">Academic record</span></div>
-          <ul class="timeline">
-            <li>
-              <strong>Government Engineering College, Raichur</strong>
-              <div class="muted">B.Tech — Computer Science & Engineering • 7.2 CGPA • 2025</div>
-            </li>
-            <li>
-              <strong>St. Xavier PU College, Kalaburagi</strong>
-              <div class="muted">PUC • 95.5% • 2021</div>
-            </li>
-            <li>
-              <strong>St Mary School Kootnoor (D), Kalaburagi</strong>
-              <div class="muted">SSLC • 92.5% • 2019</div>
-            </li>
-          </ul>
-        </section>
+    <!-- 🔹 About Section -->
+    <section id="about">
+      <h3 class="section-title">About Me</h3>
+      <p>
+        I am a Computer Science Engineer passionate about solving real-world problems through technology.
+        I actively participate in projects and internships to strengthen my skills and practical understanding.
+      </p>
+      <h4>Skills</h4>
+      <div class="skills">
+        <span class="chip">Python</span>
+        <span class="chip">Django</span>
+        <span class="chip">HTML</span>
+        <span class="chip">CSS</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">MySQL</span>
+        <span class="chip">AIML (Basic)</span>
       </div>
+    </section>
 
-      <!-- right column -->
-      <aside>
-        <div class="card contact-block" id="contact">
-          <div class="section-title"><h3>Contact</h3><a class="muted" href="#">Get in touch</a></div>
-          <div class="contact-row"><strong>Phone</strong><span class="muted">7975733928</span></div>
-          <div class="contact-row"><strong>Email</strong><span class="muted">imjoshua49@gmail.com</span></div>
-          <div class="contact-row"><strong>Location</strong><span class="muted">Kalaburagi, India</span></div>
+    <!-- 🔹 Experience Section -->
+    <section id="experience">
+      <h3 class="section-title">Experience & Internships</h3>
+      <ul class="timeline">
+        <li><strong>Technosoft Corporation</strong> — <span class="muted">Python with Django Intern</span></li>
+        <li><strong>Eduwize Empowering Solution</strong> — <span class="muted">Web Development Intern</span></li>
+        <li><strong>IBM Corporation</strong> — <span class="muted">AIML Intern</span></li>
+        <li><strong>Rooman Technologies Pvt Ltd</strong> — <span class="muted">Python Intern</span></li>
+        <li><strong>Wadwani</strong> — <span class="muted">English Communication Intern</span></li>
+      </ul>
+    </section>
 
-          <div style="margin-top:12px">
-            <a class="cta" href="mailto:imjoshua49@gmail.com">Email me</a>
-          </div>
-        </div>
+    <!-- 🔹 Projects Section -->
+    <section id="projects">
+      <h3 class="section-title">Projects</h3>
+      <ul class="timeline">
+        <li><strong>Portfolio Website</strong> — <span class="muted">Responsive personal website using HTML & CSS</span></li>
+        <li><strong>Django Form App</strong> — <span class="muted">Form-based course enrollment app (Django)</span></li>
+        <li><strong>Machine Learning</strong> — <span class="muted">AIML mini-projects from IBM Internship</span></li>
+        <li><strong>Web CRUD App</strong> — <span class="muted">Django + MySQL based CRUD application</span></li>
+      </ul>
+    </section>
 
-        <div class="card" style="margin-top:18px">
-          <div class="section-title"><h3>Projects</h3><span class="muted">Selected work</span></div>
-          <div class="projects">
-            <div class="project">
-              <h4>Portfolio Website</h4>
-              <div class="muted">Single‑page responsive portfolio built with HTML & CSS.</div>
-            </div>
-            <div class="project">
-              <h4>Django Form App</h4>
-              <div class="muted">Common form for course enrollment (server-side with Django).</div>
-            </div>
-            <div class="project">
-              <h4>Machine Learning</h4>
-              <div class="muted">Small AIML projects completed during IBM internship.</div>
-            </div>
-            <div class="project">
-              <h4>Web CRUD App</h4>
-              <div class="muted">Full‑stack app using Django and MySQL.</div>
-            </div>
-          </div>
-        </div>
+    <!-- 🔹 Contact Section -->
+    <section id="contact">
+      <h3 class="section-title">Contact</h3>
+      <p><strong>Email:</strong> <span class="muted">imjoshua49@gmail.com</span></p>
+      <p><strong>Location:</strong> <span class="muted">Kalaburagi, India</span></p>
+      <a href="mailto:imjoshua49@gmail.com" class="btn-glow">Email Me ✉️</a>
+    </section>
 
-        <div class="card" style="margin-top:18px">
-          <div class="section-title"><h3>Languages</h3><span class="muted">Fluent</span></div>
-          <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px">
-            <span class="chip">Kannada</span>
-            <span class="chip">English</span>
-            <span class="chip">Hindi</span>
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <footer>
-      Built with ❤️ • Available on request — resume and project links.
-    </footer>
+    <footer>Built with ❤️ • Available on request — resume and project links.</footer>
   </div>
 </body>
 </html>
